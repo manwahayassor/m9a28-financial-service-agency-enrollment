@@ -1,0 +1,20 @@
+assemble:
+  - from: build/static
+    into: static
+agent-enrollment-custom-element:
+  cssURLs:
+    - css/main.*.css
+  friendlyURLMapping: agent-enrollment-custom-element
+  htmlElementName: agent-enrollment-custom-element
+  instanceable: true
+  name: Agent Enrollment Custom Element
+  portletCategoryName: category.client-extensions
+  type: customElement
+  urls:
+    - js/main.*.js
+  useESM: true
+liferay-agent-js-import-map-entry:
+  bareSpecifier: agentEnrollmentManager
+  name: Liferay Agent Enrollment Manager
+  type: jsImportMapsEntry
+  url: js/main.*.js

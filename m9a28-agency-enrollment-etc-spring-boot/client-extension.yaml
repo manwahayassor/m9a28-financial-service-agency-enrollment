@@ -1,0 +1,25 @@
+assemble:
+    - fromTask: bootJar
+agent-enrollment-etc-spring-boot-notification-type-1:
+    name: Agent Enrollment Etc Spring Boot Notification Type 1
+    oAuth2ApplicationExternalReferenceCode: agent-enrollment-etc-spring-boot-oauth-application-user-agent
+    resourcePath: /notification/type/1
+    type: notificationType
+agent-enrollment-etc-spring-boot-oauth-application-user-agent:
+    .serviceAddress: localhost:58082
+    .serviceScheme: http
+    name: Agent Enrollment Etc Spring Boot OAuth Application User Agent
+    scopes:
+        - c_agencyrequest.everything.write
+        - Liferay.Headless.Admin.Workflow.everything
+    type: oAuthApplicationUserAgent
+agent-enrollment-etc-spring-boot-move-to-step-2-qualification:
+    name: Agent Enrollment Etc Spring Boot Move to Step 2
+    oAuth2ApplicationExternalReferenceCode: agent-enrollment-etc-spring-boot-oauth-application-user-agent
+    resourcePath: /enrollment/step/2
+    type: objectAction
+agent-enrollment-etc-spring-boot-move-to-step-3-preparation:
+    name: Agent Enrollment Etc Spring Boot Move to Step 3
+    oAuth2ApplicationExternalReferenceCode: agent-enrollment-etc-spring-boot-oauth-application-user-agent
+    resourcePath: /enrollment/step/3
+    type: objectAction

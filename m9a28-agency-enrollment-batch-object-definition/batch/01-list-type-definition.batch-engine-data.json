@@ -1,0 +1,79 @@
+{
+    "configuration": {
+        "className": "com.liferay.headless.admin.list.type.dto.v1_0.ListTypeDefinition",
+        "parameters": {
+            "containsHeaders": "true",
+            "createStrategy": "UPSERT",
+            "onErrorFail": "false",
+            "updateStrategy": "UPDATE"
+        },
+        "taskItemDelegateName": "DEFAULT"
+    },
+    "items": [
+        {
+            "system": false,
+            "name_i18n": {
+                "en-US": "Agency Request Status"
+            },
+            "name": "Agency Request Status",
+            "listTypeEntries": [
+                {
+                    "name_i18n": {
+                        "en-US": "Demande"
+                    },
+                    "name": "Demande",
+                    "type": "",
+                    "key": "demande",
+                    "externalReferenceCode": "a862058b-3a03-4dc5-a722-004a32ca5068"
+                },
+                {
+                    "name_i18n": {
+                        "en-US": "Qualification & Verification"
+                    },
+                    "name": "Qualification & Verification",
+                    "type": "",
+                    "key": "qualificationVerification",
+                    "externalReferenceCode": "f9aff870-af14-facf-8621-1c2e87f10dbd"
+                },
+                {
+                    "name_i18n": {
+                        "en-US": "Preparation & Verification"
+                    },
+                    "name": "Preparation & Verification",
+                    "type": "",
+                    "key": "preparationVerification",
+                    "externalReferenceCode": "bda5aae8-d177-83a4-bf8b-dfa4257bb5f6"
+                }
+            ],
+            "externalReferenceCode": "M9A28_AGENCY_REQUEST_STATUS"
+        },
+        {
+            "system": false,
+            "name_i18n": {
+                "en-US": "Agency Request Entity Type"
+            },
+            "name": "Agency Request Entity Type",
+            "listTypeEntries": [
+                {
+                    "name_i18n": {
+                        "en-US": "Société Unipersonnelle"
+                    },
+                    "name": "Société Unipersonnelle",
+                    "type": "",
+                    "key": "socitUnipersonnelle",
+                    "externalReferenceCode": "89672783-a3e6-15b2-e174-e78d9cd3c49d"
+                },
+                {
+                    "name_i18n": {
+                        "en-US": "Société Privée"
+                    },
+                    "name": "Société Privée",
+                    "type": "",
+                    "key": "socitPrive",
+                    "externalReferenceCode": "416b309e-d461-6474-ba02-b7bd469cac5e"
+                }
+            ],
+            "externalReferenceCode": "8008b0ea-aa1e-64eb-6548-a4031a9b0201"
+        }
+    ]
+}
