@@ -3,9 +3,9 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later OR LicenseRef-Liferay-DXP-EULA-2.0.0-2023-06
  */
 
-package com.liferay.samples.agent.enrollment.web;
+package com.liferay.samples.financial.service.agency.enrollment.web;
 
-import com.liferay.samples.agent.enrollment.services.AgentRequestService;
+import com.liferay.samples.financial.service.agency.enrollment.services.AgencyRequestService;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -24,20 +24,41 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Gregory Amerson
  * @author Brian Wing Shun Chan
  */
-@RequestMapping("/enrollment/step/2")
+@RequestMapping("/enrollment")
 @RestController
-public class ObjectAction2RestController extends BaseRestController {
-    private final AgentRequestService _agentRequestService;
+public class AgencyEnrollmentRestController extends BaseRestController {
 
-    public ObjectAction2RestController(AgentRequestService agentRequestService) {
-        _agentRequestService = agentRequestService;
+    private final AgencyRequestService _agencyRequestService;
+
+    public AgencyEnrollmentRestController(AgencyRequestService agencyRequestService) {
+        this._agencyRequestService = agencyRequestService;
     }
 
-    @PostMapping
-    public ResponseEntity<String> post(
+    @PostMapping("/step/2")
+    public ResponseEntity<String> moveToStep2(
             @AuthenticationPrincipal Jwt jwt, @RequestBody String json) {
 
-//        log(jwt, _log, json);
+        log(jwt, _log, json);
+
+        JSONObject jsonObject = new JSONObject(json);
+
+        JSONObject agencyRequestStatus = new JSONObject().put("key", "qualificationVerification");
+
+        JSONObject json1 = new JSONObject().put("agencyRequestStatus", agencyRequestStatus);
+
+        System.out.println("json1 :: " + json1);
+
+        _agencyRequestService.update(jwt, jsonObject.getLong("classPK"), json1.toString());
+
+        return new ResponseEntity<>(json, HttpStatus.OK);
+
+    }
+
+    @PostMapping("/step/3")
+    public ResponseEntity<String> moveToStep3(
+            @AuthenticationPrincipal Jwt jwt, @RequestBody String json) {
+
+        log(jwt, _log, json);
 
         JSONObject jsonObject = new JSONObject(json);
 
@@ -48,12 +69,12 @@ public class ObjectAction2RestController extends BaseRestController {
 
         System.out.println(json1.toString());
 
-        ResponseEntity<String> response = _agentRequestService.update(jwt, jsonObject.getLong("classPK"), json1.toString());
+        ResponseEntity<String> response = _agencyRequestService.update(jwt, jsonObject.getLong("classPK"), json1.toString());
 
         return new ResponseEntity<>(response.getBody(), HttpStatus.OK);
     }
 
     private static final Log _log = LogFactory.getLog(
-            ObjectAction2RestController.class);
+            AgencyEnrollmentRestController.class);
 
 }

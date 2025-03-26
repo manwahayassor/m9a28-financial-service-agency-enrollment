@@ -1,29 +1,24 @@
-package com.liferay.samples.agent.enrollment.services;
+package com.liferay.samples.financial.service.agency.enrollment.services;
 
-import com.liferay.samples.agent.enrollment.web.BaseRestController;
+import com.liferay.samples.financial.service.agency.enrollment.web.BaseRestController;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Mono;
 
 @Service
-public class AgentRequestService extends BaseRestController {
+public class AgencyRequestService extends BaseRestController {
 
-    public ResponseEntity<String> update(
-            @AuthenticationPrincipal Jwt jwt,
-            Long id,
-            @RequestBody String json) {
+    public ResponseEntity<String> update(Jwt jwt, Long id, String json) {
 
-//        log(jwt, _log, json);
+        log(jwt, _log, json);
 
         WebClient.Builder builder = WebClient.builder();
 
@@ -71,5 +66,5 @@ public class AgentRequestService extends BaseRestController {
     }
 
     private static final Log _log = LogFactory.getLog(
-            AgentRequestService.class);
+            AgencyRequestService.class);
 }

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: LGPL-2.1-or-later OR LicenseRef-Liferay-DXP-EULA-2.0.0-2023-06
  */
 
-package com.liferay.samples.agent.enrollment;
+package com.liferay.samples.financial.service.agency.enrollment;
 
 import com.liferay.client.extension.util.spring.boot.ClientExtensionUtilSpringBootComponentScan;
 
@@ -18,10 +18,10 @@ import org.springframework.context.annotation.Import;
  */
 @Import(ClientExtensionUtilSpringBootComponentScan.class)
 @SpringBootApplication
-public class EnrollmentSpringBootApplication {
+public class AgencyEnrollmentSpringBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EnrollmentSpringBootApplication.class, args);
+		SpringApplication.run(AgencyEnrollmentSpringBootApplication.class, args);
 	}
 
 }
